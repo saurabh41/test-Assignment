@@ -24,7 +24,7 @@
 
 ---
 
-## 📦 How to Install Dependencies
+## 📦 How to Install Dependencies and Run Project
 
 Before running the project, make sure you have Node.js and Angular CLI installed.
 
@@ -37,3 +37,9 @@ cd <project-directory>
 
 # Install dependencies
 npm install
+
+#How to Run?
+ng serve
+
+#Open Browser
+http://localhost:4200
