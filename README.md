@@ -1,59 +1,39 @@
-# TestAssignment
+# Angular Test Assignment – Design Overview
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.2.8.
+## 🧠 Design Decisions
 
-## Development server
+### 1. **Component Structure**
+- **SearchPanelComponent**: Handles user input using `FormControl` for each field. This modular approach allows individual control over each field and makes the form easy to manage.
+- **DataTableComponent**: Responsible for displaying filtered data in a clean and responsive table layout. It is reusable and takes input from the parent.
+- Components are split by responsibility to follow the **Single Responsibility Principle** and improve maintainability.
 
-To start a local development server, run:
+### 2. **Data Flow**
+- Used `@ViewChild()` and method calls to allow **parent-to-child communication** (e.g., calling a method on `DataTableComponent`).
+- Data is passed from **SearchPanelComponent** to **DataTableComponent** for filtering without tightly coupling them.
+- Simple and readable `filterPeople` logic was implemented to match partial inputs from the user against multiple fields.
 
-```bash
-ng serve
-```
+### 3. **Services**
+- `DataService` fetches mock data via HTTP. It uses Angular's `HttpClient` with `providedIn: 'root'` for global availability and singleton behavior.
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+### 4. **Styling & Layout**
+- Used **Flexbox** for layout alignment to ensure the form and table are **centered and spaced properly**.
+- Ensured the table displays even with no data, preserving headers for better UX.
 
-## Code scaffolding
+### 5. **Template Reference Variables**
+- Used `#templateRef` and `ngTemplateOutlet` to conditionally show messages like "No results found" while keeping the UI clean.
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+---
 
-```bash
-ng generate component component-name
-```
+## 📦 How to Install Dependencies
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
-
-```bash
-ng generate --help
-```
-
-## Building
-
-To build the project run:
+Before running the project, make sure you have Node.js and Angular CLI installed.
 
 ```bash
-ng build
-```
+# Clone the repository
+git clone <your-repo-url>
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+# Navigate into the project directory
+cd <project-directory>
 
-## Running unit tests
-
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+# Install dependencies
+npm install
