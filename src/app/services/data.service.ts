@@ -1,19 +1,18 @@
-import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { Observable, map } from 'rxjs';
 import { Person } from '../models/person.model';
 
+import { HttpClient } from '@angular/common/http';
+import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
+
 @Injectable({
-  providedIn: 'root' // This ensures it’s available globally
+  providedIn: 'root',
 })
 export class DataService {
-  private apiUrl = 'https://mp1855331cde406ca0fd.free.beeceptor.com/data';
+  private apiUrl = 'https://mocki.io/v1/88b12545-3263-4e9c-bf55-d73f107f9d77';
 
-  constructor(private http: HttpClient) {}
+  constructor(private httpClient: HttpClient) { }
 
-  getPeople(): Observable<Person[]> {
-    return this.http.get<{ people: Person[] }>(this.apiUrl).pipe(
-      map(response => response.people) // Because the data is nested under "people"
-    );
+  public getPeople(): Observable<Person[]> {
+    return this.httpClient.get<Person[]>(this.apiUrl)
   }
 }

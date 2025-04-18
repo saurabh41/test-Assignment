@@ -1,14 +1,17 @@
-<form [formGroup]="searchForm" (ngSubmit)="onSearch()" class="search-form">
-    <div class="input-group">
-      <input type="text" formControlName="firstName" placeholder="First Name" />
-      <input type="text" formControlName="lastName" placeholder="Last Name" />
-      <input type="text" formControlName="position" placeholder="Position" />
-      <input type="text" formControlName="phoneNumber" placeholder="Phone Number" />
-    </div>
+<div class="page-container">
+    <form [formGroup]="searchForm" (ngSubmit)="onSearch()" class="search-form">
+      <div class="input-group">
+        <input type="text" formControlName="firstName" placeholder="First Name" />
+        <input type="text" formControlName="lastName" placeholder="Last Name" />
+        <input type="text" formControlName="position" placeholder="Position" />
+        <input type="text" formControlName="phoneNumber" placeholder="Phone Number" />
+      </div>
   
-    <div class="button-group">
-      <button type="submit">Search</button>
-      <button type="button" (click)="onReset()">Reset</button>
-    </div>
-  </form>
+      <div class="button-group">
+        <button type="submit">Search</button>
+        <button type="button" (click)="onReset()">Reset</button>
+      </div>
+    </form>
   
+    <app-data-table> </app-data-table>
+  </div>
